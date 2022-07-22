@@ -15,18 +15,52 @@ body {
   position: fixed;
 }
 
+#sideBarTextWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
 #indexPhotoGrid {
   margin-left: 400px;
 }
 
 h1 {
-  padding-top: 100px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
   font-size: 40px;
   font-family: "BebasNeue";
 }
 
 h2 {
-  padding-top: 10px;
+  margin-top: 10px;
   font-family: "Typewriter";
+}
+
+/* tablets 768, and small screens*/
+@media (max-width: 1024px) {
+  #sideBar {
+    width: 100vw;
+    height: 200px;
+    top: 0px;
+    position: inherit;
+  }
+
+  #sideBarTextWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  #indexPhotoGrid {
+    margin-left: 0px;
+  }
+}
+
+/* phones */
+@media (max-width: 480px) {
+  #indexPhotoGrid {
+    margin-left: 0px;
+  }
 }
