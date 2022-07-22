@@ -1,0 +1,32 @@
+@import "../styles/typography.css";
+
+html,
+body {
+  height: 100%;
+}
+
+#sideBar {
+  background-color: #ebf4f9;
+  width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+}
+
+#indexPhotoGrid {
+  margin-left: 400px;
+}
+
+h1 {
+  padding-top: 100px;
+  padding-bottom: 20px;
+  font-size: 40px;
+  font-family: "BebasNeue";
+}
+
+h2 {
+  padding-top: 10px;
+  font-family: "Typewriter";
+}
