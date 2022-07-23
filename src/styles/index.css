@@ -37,8 +37,9 @@ h2 {
   font-family: "Typewriter";
 }
 
-/* tablets 768, and small screens*/
-@media (max-width: 1024px) {
+
+/* medium screens */
+@media (max-width: 1280px) {
   #sideBar {
     width: 100vw;
     height: 200px;
@@ -58,9 +59,4 @@ h2 {
   }
 }
 
-/* phones */
-@media (max-width: 480px) {
-  #indexPhotoGrid {
-    margin-left: 0px;
-  }
-}
+/* small screens 720px*/

@@ -10,10 +10,10 @@ const PhotoGrid = ({ photos, columnSizes }) => {
 
   var columns = columnSizes[0];
   if(typeof window !== 'undefined'){
-    if (window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1280) {
       columns = columnSizes[1]
     }
-    if (window.innerWidth <= 480) {
+    if (window.innerWidth <= 720) {
       columns = columnSizes[2]
     }
   }

@@ -1,7 +1,9 @@
 module.exports = {
   pathPrefix: "/portfolio",
   siteMetadata: {
-    title: `My Portfolio`,
+    title: `Alfiejz Portfolio`,
+    description: `Personal photography and cooking portfolio`,
+    author: `Jiazuo Liu`,
     siteUrl: `https://alfiejz.github.io/portfolio/`
   },
   plugins: ["gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
@@ -9,7 +11,14 @@ module.exports = {
     options: {
       "icon": "src/images/icon.png"
     }
-  }, "gatsby-plugin-mdx", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  }, "gatsby-plugin-mdx", {
+    resolve: 'gatsby-plugin-sharp',
+    options: {
+      defaults: {
+        formats: [`auto`, `webp`, `avif`]
+      }
+    }
+  }, "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
