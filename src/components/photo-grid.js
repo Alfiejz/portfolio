@@ -10,10 +10,10 @@ const PhotoGrid = ({ photos, columnSizes }) => {
 
   var columns = columnSizes[0];
   if(typeof window !== 'undefined'){
-    if (window.innerWidth <= 1280) {
+    if (window.innerWidth >= 720) {
       columns = columnSizes[1]
     }
-    if (window.innerWidth <= 720) {
+    if (window.innerWidth >= 1080) {
       columns = columnSizes[2]
     }
   }
@@ -40,12 +40,20 @@ const PhotoGrid = ({ photos, columnSizes }) => {
 
   photos.map((image) => (assignPosition(image)))
 
+  var columnIndex = 0
+  
+  function generateColumnKey() {
+    let key = "c" + columnIndex
+    columnIndex++
+    return key
+  }
+
   return (
     <div className={photoGridStyles.photoGrid}>
       {photoColumns.map((photoColumn) => (
-        <div className={photoGridStyles.photoColumn} style={{width: `calc(100% / ${columns})`}}>
+        <div className={photoGridStyles.photoColumn} style={{width: `calc(100% / ${columns})`}} key={generateColumnKey()}>
           {photoColumn.map((photo) => (
-            <GatsbyImage image={getImage(photo)} alt="photo" loading="eager"/>
+            <GatsbyImage image={getImage(photo)} alt="photo" key={photo.childImageSharp.id}/>
           ))}
         </div>
       ))}

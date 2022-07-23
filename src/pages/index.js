@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
 
   const photos = data.allFile.nodes
 
-  const typeWriterSpeed = 50
+  const typeWriterSpeed = 80
   const menuItem1 = "Photography"
   const menuItem2 = "Cooking"
   var menuItem1Index = 0
@@ -35,33 +35,33 @@ const IndexPage = ({ data }) => {
 
   React.useEffect(() => {
     setTimeout(typeWriter, typeWriterSpeed);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
       <Helmet>
+        <html lang="en-GB"/>
         <title>{data.site.siteMetadata.title}</title>
         <meta charSet="utf-8"/>
         <meta name="description" content={data.site.siteMetadata.description}/>
         <meta name="author" content={data.site.siteMetadata.author}/>
       </Helmet>
-      <body>
-        <div id="sideBar">
-          <div id="sideBarTextWrapper">
-            <title>Home Page</title>
-            <h1>
-              Alfiejz
-            </h1>
-            <div>
-              <h2 id="menuItem1"></h2>
-              <h2 id="menuItem2"></h2>
-            </div>
+      <div id="sideBar">
+        <div id="sideBarTextWrapper">
+          <title>Home Page</title>
+          <h1>
+            Alfiejz
+          </h1>
+          <div>
+            <p id="menuItem1"></p>
+            <p id="menuItem2"></p>
           </div>
         </div>
-        <div id="indexPhotoGrid">
-          <PhotoGrid photos={photos} largeColumns={4} columnSizes={[4, 3, 2]}></PhotoGrid>
-        </div>
-      </body>
+      </div>
+      <div id="indexPhotoGrid">
+        <PhotoGrid photos={photos} columnSizes={[2, 3, 4]}></PhotoGrid>
+      </div>
     </>
   )
 }
@@ -80,10 +80,9 @@ export const query = graphql`
         childImageSharp {
           gatsbyImageData(
             width: 960
-            quality: 100
           )
+          id
         }
-        id
       }
     }
   }

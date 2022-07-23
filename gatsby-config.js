@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: "/portfolio",
   siteMetadata: {
-    title: `Alfiejz Portfolio`,
+    title: `Portfolio ― Alfiejz`,
     description: `Personal photography and cooking portfolio`,
     author: `Jiazuo Liu`,
     siteUrl: `https://alfiejz.github.io/portfolio/`
