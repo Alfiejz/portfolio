@@ -5,6 +5,20 @@ import * as photoGridStyles from "../components/photo-grid.module.css"
 
 const PhotoGrid = ({ photos, columnSizes }) => {
 
+  const useWindowWidth = () => {
+    const isBrowser = typeof window !== 'undefined'
+    const [width, setWidth] = React.useState(isBrowser ? window.innerWidth : 0)
+    React.useEffect(() => {
+      if (!isBrowser) return false
+      const handleResize = () => setWidth(window.innerWidth)
+      window.addEventListener('resize', handleResize)
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    })
+    return width
+  }
+
   var totalHeights = [];
   var photoColumns = [];
 
@@ -48,6 +62,8 @@ const PhotoGrid = ({ photos, columnSizes }) => {
     return key
   }
 
+  const width = useWindowWidth()
+  
   return (
     <div className={photoGridStyles.photoGrid}>
       {photoColumns.map((photoColumn) => (
@@ -58,7 +74,6 @@ const PhotoGrid = ({ photos, columnSizes }) => {
         </div>
       ))}
     </div>
-
   )
 }
 
